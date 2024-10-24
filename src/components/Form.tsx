@@ -22,17 +22,25 @@ const Form = () => {
 		}
 	]
 	const [checkedStates, setCheckedStates] = useState([false, false, false]);
-	const [numPagines, setNumPagines] = useState(0);
-	const [numIdiomes, setNumIdiomes] = useState(0);
+	const [numPagines, setNumPagines] = useState(1);
+	const [numIdiomes, setNumIdiomes] = useState(1);
+	const [webActive, setWebActive] = useState(false);
+
+  
+
+  const toggleWeb = () => {
+    setWebActive(!webActive);
+  }
+
+	const subtotal = content.reduce((sum, item, index) => sum + (checkedStates[index] ? item.preu : 0), 0);
+	const total = subtotal + (webActive? (numPagines + numIdiomes) : 0) * 30;
+
 
 	const handleCheckboxChange = (index:number) => {
 	  const newCheckedStates = [...checkedStates];
 	  newCheckedStates[index] = !newCheckedStates[index];
 	  setCheckedStates(newCheckedStates);
 	};
-
-	const subtotal = content.reduce((sum, item, index) => sum + (checkedStates[index] ? item.preu : 0), 0);
-	const total = subtotal + (numPagines + numIdiomes) * 4;
 
 	return (
 	  <div className="mx-5 md:mx-20 lg:mx-40 flex flex-col gap-10 my-8">
@@ -44,7 +52,11 @@ const Form = () => {
 			preu={item.preu}
 			checked={checkedStates[index]}
 			onChange={() => handleCheckboxChange(index)}
-			total={total}
+			numPagines={numPagines}
+			setNumPagines={setNumPagines}
+			numIdiomes={numIdiomes}
+			setNumIdiomes={setNumIdiomes}
+			toggleWeb={toggleWeb}
 		  />
 		))}
 		<Price

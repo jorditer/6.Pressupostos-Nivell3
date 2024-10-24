@@ -1,4 +1,5 @@
-import Web from './Web.tsx'
+import { useState } from 'react';
+import Counter from './Counter'
 
 interface CardProps {
   title: string;
@@ -6,17 +7,18 @@ interface CardProps {
   preu: number;
   checked: boolean;
   onChange: () => void;
-  total: number;
+  numPagines: number;
+  setNumPagines: (count: number) => void;
+  numIdiomes: number;
+  setNumIdiomes: (count: number) => void;
+  toggleWeb: (event: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => {
+const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange, numPagines, setNumPagines, numIdiomes, setNumIdiomes, toggleWeb }) => {
 
-	// const total = subtotal + (numPagines + numIdiomes) * 4;
-  // const [numPagines, setNumPagines] = useState(0);
-	// const [numIdiomes, setNumIdiomes] = useState(0);
 
   return (
-    <div className=" shadowdiv rounded-3xl bg-white hover:outline hover:outline-orange-400 gap-4 p-10">
+    <div className="hover:shadow-xl shadow rounded-3xl bg-white hover:outline hover:outline-orange-400 gap-4 p-10">
       <div className="flex-nowrap flex flex-col sm:flex-row  justify-between items-center">
         <div className="border text-center md:text-start">
           <h2 className="border">{title}</h2>
@@ -34,19 +36,20 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => 
             id={title}
             checked={checked}
             onChange={onChange}
-          />{" "}
+            onClick={title === "Web" ? toggleWeb : undefined}
+          />
           {/* el title y el for han de ser iguales para que que cuando clickes "Afegir" se active la checkbox correcta */}
           <label className="hidden sm:block" htmlFor={title}>
             Afegir
           </label>
         </div>
       </div>
-        {title === "Web" && <Web
-          // pages={numPagines}
-          // setPages={setNumPagines}
-          // setIdiomes={setNumIdiomes}
-
-        />}
+        {title === "Web" && (
+          <div className={`${checked ? "" : "hidden"}`}>
+            <Counter text="Nombre de pàgines"/>
+            <Counter text="Nombre de llenguatges"/>
+          </div>
+        )}
     </div>
   );
 };
