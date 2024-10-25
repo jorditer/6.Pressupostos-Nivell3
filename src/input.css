@@ -18,7 +18,19 @@ span {
 	@apply font-[750px] text-5xl;
 }
 
-input {
+input[type="checkbox"] {
 	@apply accent-orange-400 border-orange-700 size-8 sm:size-4;
+}
+
+.cardElement {
+	@apply hover:shadow-xl shadow rounded-3xl bg-white hover:outline hover:outline-orange-400 gap-4 p-10;
+}
+
+.cardContent {
+	@apply text-center md:text-start;
+}
+
+.cardsContainer {
+	@apply mx-5 md:mx-20 lg:mx-40 flex flex-col gap-10 my-8;
 }
 

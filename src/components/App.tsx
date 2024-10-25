@@ -1,17 +1,18 @@
-// import { useState } from 'react'
-// import Card from "./Card.tsx"
-import Header from "./Header.tsx"
-import Form from "./Form.tsx"
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import Welcome from "./Welcome";
+import Layout from './Layout';
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/calculator" element={<Layout />} />
+      </>
+    )
+  );
 
-  
-  return (
-   <div className="bg-orange-100">
-    <Header />
-    <Form />
-   </div> 
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
