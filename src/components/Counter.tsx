@@ -17,7 +17,7 @@ const Counter: React.FC<{ text: string }> = ({ text }) => {
   const decrement = isPagines ? decrementPagines : decrementIdiomes;
 
   return (
-    <div className="flex flex-col items-end border">
+    <div className="flex flex-col items-end">
       <div className="flex items-center">
         <p>{text}</p>
         <div className="ps-3 flex items-center">

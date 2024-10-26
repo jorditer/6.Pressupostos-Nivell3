@@ -1,8 +1,8 @@
+// import { useState } from "react";
 import BudgetCard from "./BudgetCard.tsx"
 
 
-const StoredBudgets = () => {
-
+const StoredBudgets = ({ total, checkedStates, content }) => {
 	return (
 		<>
 			<h2>Pressupostos en curs:</h2>
