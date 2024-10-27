@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => 
           <h2 className="mb-4 sm:mb-0">{title}</h2>
           <p className="mt-2">{text}</p>
         </div>
-        <h2 className="whitespace-nowrap ">
+        <h2 className="whitespace-nowrap mr-3">
           <span>{preu}</span> €
         </h2>
         <div className="self-end sm:self-center space-x-4 flex ">

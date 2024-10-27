@@ -10,12 +10,16 @@ export interface BudgetCardProps {
   name: string;
   phone: string;
   email: string;
+  date: number;
+  numPagines: number;
+  numIdiomes: number;
 }
 
 const Budget: React.FC = () => {
-  const { checkedStates, total, content, setCheckedStates } = useCounterContext();
+  const { checkedStates, total, content, setCheckedStates, numIdiomes, numPagines } = useCounterContext();
   const [budgetCards, setBudgetCards] = useState<BudgetCardProps[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
+  // console.log(budgetCards);
 
   const handleAddBudgetCard = () => {
     const nameElement = document.querySelector<HTMLInputElement>("#name");
@@ -60,7 +64,10 @@ const Budget: React.FC = () => {
       content,
       name,
       phone,
-      email
+      email,
+      date: Date.now(),
+      numPagines,
+      numIdiomes
     };
     
     setBudgetCards([...budgetCards, newCard]);
