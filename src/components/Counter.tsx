@@ -12,22 +12,23 @@ const Counter: React.FC<{ text: string }> = ({ text }) => {
   const number = isPagines ? numPagines : numIdiomes;
   const increment = isPagines ? incrementPagines : incrementIdiomes;
   const decrement = isPagines ? decrementPagines : decrementIdiomes;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
 
   const title = isPagines ? "Número de llenguatges" : "Número de pàgines";
   const content = isPagines
     ? "Afageix les pàgines que necessesitis per a dur a terme el teu projecte. El cost de cada pàgina és de 30€"
     : "Afageix les llengües que tindrà el teu projecte, el cost de cada llenguatge és de 30€";
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const toggleModal = () => {
+      setIsModalOpen(!isModalOpen);
+    };
+  
   return (
     <div className="flex flex-col items-end">
       <div className="flex items-center">
-        <button onClick={toggleModal}>&#9432;&nbsp;</button>
-        {isModalOpen && ReactDOM.createPortal(<IdiomModal content={content} title={title} isOpen={isModalOpen} onClose={toggleModal} />, document.body)}
+      <button onClick={toggleModal}>&#9432;&nbsp;</button>
+        {isModalOpen && ReactDOM.createPortal(<IdiomModal isOpen={isModalOpen} onClose={toggleModal} title={title} content={content}/>, document.body)}
         <p>{text}</p>
         <div className="ps-3 flex items-center">
           <button
