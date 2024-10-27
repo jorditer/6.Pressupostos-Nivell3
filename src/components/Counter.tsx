@@ -14,10 +14,10 @@ const Counter: React.FC<{ text: string }> = ({ text }) => {
   const decrement = isPagines ? decrementPagines : decrementIdiomes;
 
 
-  const title = isPagines ? "Número de llenguatges" : "Número de pàgines";
+  const title = isPagines ?  "Número de pàgines" : "Número de llenguatges";
   const content = isPagines
-    ? "Afageix les pàgines que necessesitis per a dur a terme el teu projecte. El cost de cada pàgina és de 30€"
-    : "Afageix les llengües que tindrà el teu projecte, el cost de cada llenguatge és de 30€";
+    ? "Afegeix les pàgines que necessesitis per a dur a terme el teu projecte. El cost de cada pàgina és de 30€"
+    : "Afegeix les llengües que tindrà el teu projecte, el cost de cada llenguatge és de 30€";
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => {
