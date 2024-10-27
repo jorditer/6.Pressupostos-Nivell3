@@ -17,6 +17,7 @@ interface CounterContextProps {
   handleCheckboxChange: (index: number) => void;
   content: Item[];
   checkedStates: boolean[];
+  setCheckedStates: React.Dispatch<React.SetStateAction<boolean[]>>;
 
 }
   const content = [
@@ -49,7 +50,7 @@ export const CounterProvider: React.FC<{ children: ReactNode }> = ({ children })
   };
   return (
     <CounterContext.Provider
-      value={{ numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates }}
+      value={{ setCheckedStates, numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates }}
     >
       {children}
     </CounterContext.Provider>

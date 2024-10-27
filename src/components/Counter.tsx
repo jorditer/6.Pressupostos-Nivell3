@@ -11,7 +11,7 @@ const Counter: React.FC<{ text: string }> = ({ text }) => {
   } = useCounterContext();
 
   // Conditionally select the correct values based on the text prop
-  const isPagines = text === "Nombre de pàgines";
+  const isPagines = text === "Nombre de pàgines:";
   const number = isPagines ? numPagines : numIdiomes;
   const increment = isPagines ? incrementPagines : incrementIdiomes;
   const decrement = isPagines ? decrementPagines : decrementIdiomes;
