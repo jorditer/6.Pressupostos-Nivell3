@@ -18,9 +18,9 @@ const IdiomModal: React.FC<IdiomModalProps> = ({ isOpen, onClose, title, content
       className="border h-auto fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
     >
  <div className="relative p-4 w-full max-w-2xl h-auto">
-        <div className="relative bg-orange-50  h-[50vh] flex-grow overflow-y-auto rounded-lg shadow">
+        <div className="relative p-14 bg-orange-50 flex-grow overflow-y-auto rounded-lg shadow">
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-            <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+            <h2 className="mx-auto w-full self-center text-center text-gray-900">{title}</h2>
             <button
               type="button"
               className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -43,8 +43,8 @@ const IdiomModal: React.FC<IdiomModalProps> = ({ isOpen, onClose, title, content
               </svg>
             </button>
           </div>
-          <div className="p-4 md:p-5">
-            <p className="">{content}</p>
+          <div className=" p-4 md:p-">
+            <p className="text-center">{content}</p>
           </div>
         </div>
       </div>

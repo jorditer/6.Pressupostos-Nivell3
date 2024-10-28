@@ -26,7 +26,7 @@ const Budget: React.FC = () => {
     const phoneElement = document.querySelector<HTMLInputElement>("#phone");
     const emailElement = document.querySelector<HTMLInputElement>("#email");
 
-    if (!nameElement || !phoneElement || !emailElement) { // puto typescript
+    if (!nameElement || !phoneElement || !emailElement) { // puto typescript obliga checkear que existan los elementos
       console.error("One or more input elements not found");
       return;
     }
@@ -35,13 +35,27 @@ const Budget: React.FC = () => {
     const phone = phoneElement.value.trim();
     const email = emailElement.value.trim();
 
-    if (!name || !phone || !email) { // Checkeja form
-      //"All fields are required." 
+    const namePattern = /^[A-Za-z\s]+$/;
+    const phonePattern = /^\+?\d{9,15}$/;
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (!name || !phone || !email) {
       setErrorMessage("Has d'omplir tot el formulari");
       return;
     }
-
-    if (checkedStates.every(state => state === false)) { // Checkeja checkbox
+    if (!namePattern.test(name)) {
+      setErrorMessage("Error al nom");
+      return;
+    }
+    if (!phonePattern.test(phone)) {
+      setErrorMessage("Número de telèfon incorrecte");
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      setErrorMessage("Email incorrecte");
+      return;
+    }
+    if (checkedStates.every(state => state === false)) {
       setErrorMessage("Ep! Selecciona un servei!")
       return;
     }
@@ -100,6 +114,8 @@ const Budget: React.FC = () => {
               type="email"
               name="e-mail"
               placeholder="E-mail"
+              required
+              title="Please enter a valid email address."
               id="email"
             />
             <button

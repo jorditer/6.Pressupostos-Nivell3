@@ -10,8 +10,8 @@ const idiomes = numIdiomes > 1 ? "idiomes" : "idioma";
 			<div className="flex flex-row justify-between">
 				<div className="">
 					<h2>{name}</h2>
-					<p className="text-slate-500">{email}</p>
-					<p className="text-slate-500">{phone}</p>
+					<p className="text-slate-600">{email}</p>
+					<p className="text-slate-600">{phone}</p>
 				</div>
 				<div className="serveis basis-1/3">
 						<p>Serveis contractats:</p>
@@ -27,7 +27,7 @@ const idiomes = numIdiomes > 1 ? "idiomes" : "idioma";
 						</ul>
 				</div>
 				<div className="">
-					<p className="text-slate-500 text-2xl font-semibold">Total:</p>
+					<p className="text-slate-600 text-2xl font-semibold">Total:</p>
 					<h2><span>{total}</span>€</h2>
 				</div>
 			</div>

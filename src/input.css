@@ -35,10 +35,23 @@ input[type="checkbox"] {
 }
 
 .cardsContainer {
-	@apply mx-5 md:mx-20 lg:mx-40 flex flex-col gap-10 my-8;
+	@apply mx-5 md:mx-20 lg:mx-28 xl:mx-40 flex flex-col gap-10 my-8;
 }
 
 li {
 	list-style-type:circle;
   margin-left: 20px;
+}
+
+.budget-nav {
+	@apply font-[sans-serif] py-2 px-5 bg-orange-300 rounded-lg;
+}
+
+.budget-nav-selected {
+	@apply font-[sans-serif] py-2 px-5 bg-orange-400 rounded-lg scale-105 font-[535];
+
+}
+
+.budget-search:focus-within {
+	@apply shadow-lg border-orange-600;
 }
