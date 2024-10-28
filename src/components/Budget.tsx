@@ -128,7 +128,7 @@ const Budget: React.FC = () => {
           {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
         </div>
       </div>
-      <StoredBudgets budgetCards={budgetCards} /> {/* Cards of variable num */}
+      <StoredBudgets budgetCards={budgetCards} setBudgetCards={setBudgetCards} /> {/* Cards of variable num */}
     </>
   );
 };

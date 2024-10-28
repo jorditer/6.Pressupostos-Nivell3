@@ -1,48 +1,51 @@
-import React, { useState } from 'react';
 import BudgetCard from './BudgetCard';
 import { BudgetCardProps } from './Budget';
 import BudgetNavBar from './BudgetNavBar';
 
 interface StoredBudgetProps {
   budgetCards: BudgetCardProps[];
+  setBudgetCards: (cards: BudgetCardProps[]) => void;
 }
 
-const StoredBudgets: React.FC<StoredBudgetProps> = ({ budgetCards }) => {
-  const [sortedCards, setSortedCards] = useState<BudgetCardProps[]>(budgetCards);
+const StoredBudgets: React.FC<StoredBudgetProps> = ({ budgetCards, setBudgetCards }) => {
+  console.log(budgetCards);
 
   const sortByName = () => {
-    const sorted = [...sortedCards].sort((a, b) => a.name.localeCompare(b.name));
-    setSortedCards(sorted);
+    const sorted = [...budgetCards].sort((a, b) => a.name.localeCompare(b.name));
+    setBudgetCards(sorted);
   };
 
   const sortByTotal = () => {
-    const sorted = [...sortedCards].sort((a, b) => a.total - b.total);
-    setSortedCards(sorted);
+    const sorted = [...budgetCards].sort((a, b) => a.total - b.total);
+    setBudgetCards(sorted);
   };
 
   const sortByDateAsc = () => {
-    const sorted = [...sortedCards].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-    setSortedCards(sorted);
+    const sorted = [...budgetCards].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    setBudgetCards(sorted);
   };
 
   const sortByDateDesc = () => {
-    const sorted = [...sortedCards].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    setSortedCards(sorted);
+    const sorted = [...budgetCards].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    setBudgetCards(sorted);
   };
 
   const hiddenClass = budgetCards.length === 0 ? 'hidden' : '';
 
+  const handleSort = (sortFunction: () => void) => {
+    sortFunction();
+  };
   return (
     <>
       <h2 className={hiddenClass}>Pressupostos en curs:</h2>
       <BudgetNavBar
         hidden={hiddenClass}
-        sortByName={sortByName}
-        sortByTotal={sortByTotal}
-        sortByDateAsc={sortByDateAsc}
-        sortByDateDesc={sortByDateDesc}
+        sortByName={() => handleSort(sortByName)}
+        sortByTotal={() => handleSort(sortByTotal)}
+        sortByDateAsc={() => handleSort(sortByDateAsc)}
+        sortByDateDesc={() => handleSort(sortByDateDesc)}
       />
-      {sortedCards.map((card) => (
+      {budgetCards.map((card) => (
         <div className="cardElement" key={card.date}>
           <BudgetCard
             total={card.total}
