@@ -7,13 +7,11 @@ const Layout = () => {
 	
 	return (
 		<CounterProvider>
-		{/* <Welcome /> */}
-		 <div className="bg-orange-100">
+		 <div className="bg-orange-100 pb-5">
 		  <Header />
 		  <div className="cardsContainer">
 			<Form />
 			<Budget />
-		  <hr className="border-t border-dotted border-gray-300 my-4" />
 		  </div>
 		 </div>
 	   </CounterProvider>

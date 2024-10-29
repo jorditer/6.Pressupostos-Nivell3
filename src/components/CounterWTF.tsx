@@ -19,7 +19,6 @@ const Counter: React.FC<{ text: string }> = ({ text }) => {
     ? "Afageix les pàgines que necessesitis per a dur a terme el teu projecte. El cost de cada pàgina és de 30€"
     : "Afageix les llengües que tindrà el teu projecte, el cost de cada llenguatge és de 30€";
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     const toggleModal = () => {
       setIsModalOpen(!isModalOpen);
     };
