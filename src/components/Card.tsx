@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => 
         </h2>
         <div className="self-end sm:self-center space-x-4 flex ">
           <input
-            className="cursor-pointer my-auto"
+            className="checkbox-cards cursor-pointer my-auto"
             type="checkbox"
             name="afegir"
             id={title}

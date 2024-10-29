@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import BudgetCard from './BudgetCard';
 import { BudgetCardProps } from './Budget';
 import BudgetNavBar from './BudgetNavBar';
@@ -8,7 +9,7 @@ interface StoredBudgetProps {
 }
 
 const StoredBudgets: React.FC<StoredBudgetProps> = ({ budgetCards, setBudgetCards }) => {
-  console.log(budgetCards);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const sortByName = () => {
     const sorted = [...budgetCards].sort((a, b) => a.name.localeCompare(b.name));
@@ -35,6 +36,11 @@ const StoredBudgets: React.FC<StoredBudgetProps> = ({ budgetCards, setBudgetCard
   const handleSort = (sortFunction: () => void) => {
     sortFunction();
   };
+
+  const filteredBudgetCards = budgetCards.filter(card =>
+    card.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <h2 className={hiddenClass}>Pressupostos en curs:</h2>
@@ -44,8 +50,10 @@ const StoredBudgets: React.FC<StoredBudgetProps> = ({ budgetCards, setBudgetCard
         sortByTotal={() => handleSort(sortByTotal)}
         sortByDateAsc={() => handleSort(sortByDateAsc)}
         sortByDateDesc={() => handleSort(sortByDateDesc)}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
-      {budgetCards.map((card) => (
+      {filteredBudgetCards.map((card) => (
         <div className="cardElement" key={card.date}>
           <BudgetCard
             total={card.total}
