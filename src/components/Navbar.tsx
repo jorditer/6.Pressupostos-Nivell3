@@ -4,7 +4,7 @@ const Navbar = () => {
 	const text = "Frontender.itacademy";
 	return (
 		<>
-			<p className="text-lg pt-5 mb-3 font-bold hover:underline">{text}</p>
+			<p className="text-lg pt-1 mb-2 md:pt-5 md:mb-3 font-bold hover:underline">{text}</p>
 		</>
 	)
 };

@@ -16,7 +16,7 @@ export interface BudgetCardProps {
 }
 
 const Budget: React.FC = () => {
-  const { checkedStates, total, content, setCheckedStates, numIdiomes, numPagines } = useCounterContext();
+  const { checkedStates, total, content, setCheckedStates, numIdiomes, numPagines, setIsSwitchOn } = useCounterContext();
   const [budgetCards, setBudgetCards] = useState<BudgetCardProps[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
   // console.log(budgetCards);
@@ -69,7 +69,7 @@ const Budget: React.FC = () => {
     checkboxes.forEach(checkbox => {
       checkbox.checked = false;
     });
-    
+    setIsSwitchOn(false);
     
     
     const newCard: BudgetCardProps = {

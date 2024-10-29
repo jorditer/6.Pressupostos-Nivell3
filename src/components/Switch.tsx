@@ -5,11 +5,11 @@ const Switch: React.FC<SwitchProps> = ({onChange}) => {		// Hecho/robado solo co
 
 	return (
 		<div className="flex justify-center gap-x-4 font-semibold">
-			<p>Pagament mensual</p>
+			<p className="whitespace-nowrap">Pagament mensual</p>
 			<label>
 				<input onChange={onChange} className="custom-switch" type="checkbox" />
 			</label>
-			<p>Pagament anual</p>
+			<p className="whitespace-nowrap">Pagament anual</p>
 		</div>
 	)
 }

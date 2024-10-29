@@ -18,7 +18,8 @@ interface CounterContextProps {
   content: Item[];
   checkedStates: boolean[];
   setCheckedStates: React.Dispatch<React.SetStateAction<boolean[]>>;
-
+  isSwitchOn: boolean;
+  setIsSwitchOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
   const content = [
     { title: "Seo", text: "Programació d'una web responsive completa", preu: 300 },
@@ -31,6 +32,11 @@ export const CounterContext = createContext<CounterContextProps | undefined>(und
 export const CounterProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [numPagines, setNumPagines] = useState(1);
   const [numIdiomes, setNumIdiomes] = useState(1);
+  const [checkedStates, setCheckedStates] = useState([false, false, false]);
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
+
+  const subtotal = content.reduce((sum, item, index) => sum + (checkedStates[index] ? item.preu : 0), 0);
+  const total = (subtotal + (checkedStates[2] ? (numPagines + numIdiomes) * 30 : 0)) * (isSwitchOn ? 0.8 : 1);
 
   const incrementPagines = () => setNumPagines((prev) => (prev < 9 ? prev + 1 : prev));
   const decrementPagines = () => setNumPagines((prev) => (prev > 1 ? prev - 1 : prev));
@@ -38,10 +44,7 @@ export const CounterProvider: React.FC<{ children: ReactNode }> = ({ children })
   const decrementIdiomes = () => setNumIdiomes((prev) => (prev > 1 ? prev - 1 : prev));
 
 
-  const [checkedStates, setCheckedStates] = useState([false, false, false]);
 
-  const subtotal = content.reduce((sum, item, index) => sum + (checkedStates[index] ? item.preu : 0), 0);
-  const total = subtotal + (checkedStates[2] ? (numPagines + numIdiomes) * 30 : 0);
 
   const handleCheckboxChange = (index: number) => {
     const newCheckedStates = [...checkedStates];
@@ -50,7 +53,7 @@ export const CounterProvider: React.FC<{ children: ReactNode }> = ({ children })
   };
   return (
     <CounterContext.Provider
-      value={{ setCheckedStates, numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates }}
+      value={{ setCheckedStates, numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates, setIsSwitchOn, isSwitchOn }}
     >
       {children}
     </CounterContext.Provider>

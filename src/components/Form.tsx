@@ -1,14 +1,12 @@
 // import { useState } from 'react';
 import { useCounterContext } from '../context/CounterContext';
-import { useState } from 'react';
+// import { useState } from 'react';
 import Card from './Card';
 import Price from './Price';
 import Switch from './Switch';
 
 const Form = () => {
-  const { handleCheckboxChange, total, content, checkedStates } = useCounterContext();
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
+  const { handleCheckboxChange, total, content, checkedStates, isSwitchOn, setIsSwitchOn } = useCounterContext();
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
@@ -29,6 +27,7 @@ const Form = () => {
           preu={calculatePrice(item.preu)}
           checked={checkedStates[index]}
           onChange={() => handleCheckboxChange(index)}
+          switchState={isSwitchOn}
         />
       ))}
       <Price price={total} />

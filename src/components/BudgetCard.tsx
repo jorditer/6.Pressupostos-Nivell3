@@ -7,7 +7,7 @@ const pagines = numPagines > 1 ? "pàgines" : "pàgina";
 const idiomes = numIdiomes > 1 ? "idiomes" : "idioma";
 	return (
 		<div>
-			<div className="flex flex-row justify-between">
+			<div className="flex flex-col gap-y-4 md:gap-y-0 md:flex-row justify-between">
 				<div className="">
 					<h2>{name}</h2>
 					<p className="text-slate-600">{email}</p>

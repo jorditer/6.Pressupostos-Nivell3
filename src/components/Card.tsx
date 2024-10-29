@@ -6,9 +6,10 @@ interface CardProps {
   preu: number;
   checked: boolean;
   onChange: () => void;
+  switchState: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => {
+const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange, switchState }) => {
   return (
     <div className="cardElement">
       <div className="flex-nowrap flex flex-col gap-y-3 sm:flex-row justify-between items-center">
@@ -16,9 +17,12 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange }) => 
           <h2 className="mb-4 sm:mb-0">{title}</h2>
           <p className="mt-2">{text}</p>
         </div>
-        <h2 className="whitespace-nowrap mr-3">
-          <span>{preu}</span> €
-        </h2>
+          <div className='flex flex-col justify-center items-center relative'>
+          {switchState && <p className='font-semibold text-orange-500 relative md:absolute mb-2 md:mb-[4.5rem] whitespace-nowrap'>20% de descompte!</p>}
+                    <h2 className="whitespace-nowrap mr-3">
+            <span>{preu}</span> €
+                    </h2>
+          </div>
         <div className="self-end sm:self-center space-x-4 flex ">
           <input
             className="checkbox-cards cursor-pointer my-auto"
