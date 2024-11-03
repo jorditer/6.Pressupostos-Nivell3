@@ -1,4 +1,4 @@
-import Counter from './Counter';
+import Counter from "./Counter";
 
 interface CardProps {
   title: string;
@@ -17,12 +17,16 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange, switc
           <h2 className="mb-4 sm:mb-0">{title}</h2>
           <p className="mt-2">{text}</p>
         </div>
-          <div className='flex flex-col justify-center items-center relative'>
-          {switchState && <p className='font-semibold text-orange-500 relative md:absolute mb-2 md:mb-[4.5rem] whitespace-nowrap'>20% de descompte!</p>}
-                    <h2 className="whitespace-nowrap mr-3">
+        <div className="flex flex-col justify-center items-center relative">
+          {switchState && (
+            <p className="font-semibold text-orange-500 relative md:absolute mb-2 md:mb-[4.5rem] whitespace-nowrap">
+              20% de descompte!
+            </p>
+          )}
+          <h2 className="whitespace-nowrap mr-3">
             <span>{preu}</span> €
-                    </h2>
-          </div>
+          </h2>
+        </div>
         <div className="self-end sm:self-center space-x-4 flex ">
           <input
             className="checkbox-cards cursor-pointer my-auto"
@@ -38,7 +42,7 @@ const Card: React.FC<CardProps> = ({ title, text, preu, checked, onChange, switc
         </div>
       </div>
       {title === "Web" && checked && (
-        <div>
+        <div className="md:justify-self-end justify-self-center -order-1">
           <Counter text="Nombre de pàgines:" />
           <Counter text="Nombre de llenguatges:" />
         </div>

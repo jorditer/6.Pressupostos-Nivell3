@@ -93,7 +93,7 @@ const Budget: React.FC = () => {
 
   return (
     <>
-      <div className="cardElement">
+      <div className="cardElement items-center">
         <div>
           <h2 className="mb-7 text-center md:text-start">Demanar pressupost:</h2>
           <div className="cardContent flex flex-col md:flex-row justify-between gap-y-4 gap-x-1 lg:gap-x-3">
