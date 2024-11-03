@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useCounterContext } from '../context/CounterContext';
+import { useCounterContext } from '../../context/useCounterContext';
 import StoredBudgets from './StoredBudgets';
-import { Item } from '../context/CounterContext';
+import { Item } from '../../context/CounterContext';
 
 export interface BudgetCardProps {
   total: number;
@@ -16,7 +16,7 @@ export interface BudgetCardProps {
 }
 
 const Budget: React.FC = () => {
-  const { checkedStates, total, content, setCheckedStates, numIdiomes, numPagines, setIsSwitchOn } = useCounterContext();
+  const { checkedStates, total, content, setCheckedStates, setNumIdiomes, setNumPagines, numIdiomes, numPagines, setIsSwitchOn } = useCounterContext();
   const [budgetCards, setBudgetCards] = useState<BudgetCardProps[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
   // console.log(budgetCards);
@@ -65,6 +65,8 @@ const Budget: React.FC = () => {
     nameElement.value= "";
     phoneElement.value = "";
     emailElement.value = "";
+    setNumIdiomes(1);
+    setNumPagines(1);
     const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
       checkbox.checked = false;

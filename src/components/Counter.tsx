@@ -1,4 +1,4 @@
-import { useCounterContext } from "../context/CounterContext"; // Import the hook
+import { useCounterContext } from "../context/useCounterContext"; // Import the hook
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import IdiomModal from "./Modals/IdiomModal";

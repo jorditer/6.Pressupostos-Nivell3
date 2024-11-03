@@ -1,6 +1,6 @@
 import Header from "./Header.tsx"
 import Form from "./Form.tsx"
-import Budget from "./Budget.tsx"
+import Budget from "./Budget/Budget.tsx"
 import { CounterProvider } from "../context/CounterContext.tsx"
 
 const Layout = () => {

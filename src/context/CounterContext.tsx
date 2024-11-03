@@ -1,4 +1,16 @@
-import { createContext, useState, useContext, ReactNode } from "react";
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   CounterContext.tsx                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/03 23:00:09 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/03 23:38:54 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+import { createContext, useState, ReactNode } from "react";
 
 export interface Item {
   title: string;
@@ -20,6 +32,8 @@ interface CounterContextProps {
   setCheckedStates: React.Dispatch<React.SetStateAction<boolean[]>>;
   isSwitchOn: boolean;
   setIsSwitchOn: React.Dispatch<React.SetStateAction<boolean>>;
+  setNumIdiomes: React.Dispatch<React.SetStateAction<number>>;
+  setNumPagines: React.Dispatch<React.SetStateAction<number>>;
 }
   const content = [
     { title: "Seo", text: "Programació d'una web responsive completa", preu: 300 },
@@ -53,17 +67,10 @@ export const CounterProvider: React.FC<{ children: ReactNode }> = ({ children })
   };
   return (
     <CounterContext.Provider
-      value={{ setCheckedStates, numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates, setIsSwitchOn, isSwitchOn }}
+      value={{ setNumIdiomes, setNumPagines, setCheckedStates, numPagines, incrementPagines, decrementPagines, numIdiomes, incrementIdiomes, decrementIdiomes, total, handleCheckboxChange, content, checkedStates, setIsSwitchOn, isSwitchOn }}
     >
       {children}
     </CounterContext.Provider>
   );
 };
 
-export const useCounterContext = () => {
-  const context = useContext(CounterContext);
-  if (!context) {
-    throw new Error("useCounterContext must be used within a CounterProvider");
-  }
-  return context;
-};
