@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# 6.Pressupostos-Nivell3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a web application built using modern front-end technologies. It showcases the use of React, React Context for state management, Tailwind CSS for styling, TypeScript for type safety, and Vite for fast development and build processes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **React**: A JavaScript library for building user interfaces.
+- **React Context**: A way to manage state globally in a React application.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite**: A build tool that provides a fast development server and optimized builds.
+- **React Router**: A library for routing in React applications.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Functionality
 
-- Configure the top-level `parserOptions` property like this:
+The webpage allows users to:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Add Discounts**: Users can add discounts to various elements on the page.
+- **Select Number of Webpages**: Users can dynamically select the number of webpages they want.
+- **Select Languages**: Users can dynamically select the languages they want.
+- **Dynamic Routing**: All the selected options (discounts, number of webpages, languages) are added to the route, allowing for a dynamic and interactive user experience.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js and npm installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd 6.Pressupostos-Nivell3
+   ```
+3. Install the dependencies:
+   ```sh
+   npm install
+   ```
+
+### Running the Project
+
+To start the development server, run:
+```sh
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **React Components**: Modular and reusable components.
+- **State Management**: Managed using React Context.
+- **Responsive Design**: Styled with Tailwind CSS.
+- **Type Safety**: Ensured with TypeScript.
+- **Fast Development**: Leveraging Vite for a quick development experience.
+- **Dynamic Routing**: Managed using React Router.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Contributing
+
+Feel free to fork this repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the ISC License.
+
+## Preview
