@@ -69,5 +69,5 @@ This project is licensed under the ISC License.
 
 ## Preview
 ![image](https://github.com/user-attachments/assets/d97c1199-a55d-4c9e-9d0a-a97053bb1328)
-![image](https://github.com/user-attachments/assets/9fac293a-e58b-46f3-9fe2-8f5bb2f2d4c2)
-![image](https://github.com/user-attachments/assets/39d6dc97-23e1-4a47-bb86-996d6c98174e)
+![image](https://github.com/user-attachments/assets/6cb8af63-7d73-4a21-9ee4-54b9c9e2a7b5)
+
